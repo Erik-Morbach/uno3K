@@ -1,0 +1,84 @@
+package entity;
+
+import java.util.List;
+
+public class CyclicalPlayerList {
+    public enum Orientation{
+        CLOCK_WISE(true), COUNTER_CLOCK_WISE(false);
+
+		Orientation(boolean b) {
+			// TODO Auto-generated constructor stub
+		}
+    }
+    private Orientation orientation;
+    private Player head;
+    private Player tail;
+    private int size;
+
+
+    public CyclicalPlayerList(){ 
+        this.orientation = Orientation.CLOCK_WISE;
+        this.size = 0;
+    }
+    public CyclicalPlayerList(List<Player> playerList){ 
+        this.orientation = Orientation.CLOCK_WISE;
+        this.size = playerList.size();
+        Player last = null;
+        for(Player current: playerList){
+            if(last==null) {
+                this.head = current;  
+                last = this.head;
+                continue;
+            }
+
+            last.setNextPlayer(current);
+            current.setPreviousPlayer(last);
+            last = current;
+        } 
+        if(last!=null){
+            this.tail = last;
+            this.tail.setNextPlayer(this.head);
+            this.head.setPreviousPlayer(last);
+        }
+    }
+
+    public void pushFront(Player newPlayer){
+         if(this.head!=null){
+            newPlayer.setNextPlayer(this.head);
+            this.head.setPreviousPlayer(newPlayer);
+            this.head = newPlayer;
+            this.tail.setNextPlayer(this.head);
+            this.head.setPreviousPlayer(this.tail);
+        }
+        else {
+            this.head = newPlayer;
+            this.tail = newPlayer;
+        }        
+    }
+    public void pushBack(Player newPlayer){
+        if(this.tail!=null){
+            newPlayer.setPreviousPlayer(this.tail);
+            this.tail.setNextPlayer(newPlayer);
+            this.tail = newPlayer;
+            this.tail.setNextPlayer(this.head);
+            this.head.setPreviousPlayer(this.tail);
+        }
+        else {
+            this.head = newPlayer;
+            this.tail = newPlayer;
+        }
+    }
+
+    public Player getNextPlayer(Player currentPlayer){
+        if(this.orientation == Orientation.CLOCK_WISE)
+            return currentPlayer.getNextPlayer();
+        if(this.orientation == Orientation.COUNTER_CLOCK_WISE)
+            return currentPlayer.getPreviousPlayer();
+        return null;
+    }
+    public void swapOrientation() { 
+    	if(this.orientation==Orientation.CLOCK_WISE) 
+    		this.orientation=Orientation.COUNTER_CLOCK_WISE;
+    	else this.orientation=Orientation.CLOCK_WISE;
+    }
+}
