@@ -2,14 +2,10 @@ package entity;
 
 import java.util.List;
 
-public class CyclicalPlayerList {
-    public enum Orientation{
-        CLOCK_WISE(true), COUNTER_CLOCK_WISE(false);
+import enums.Orientation;
 
-		Orientation(boolean b) {
-			// TODO Auto-generated constructor stub
-		}
-    }
+public class CyclicalPlayerList {
+
     private Orientation orientation;
     private Player head;
     private Player tail;
