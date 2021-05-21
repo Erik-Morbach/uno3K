@@ -7,11 +7,18 @@ public class Game {
     private Card centerCard;
     private Player currentPlayer;
     private CyclicalPlayerList playerList;
+    private static Game instance;
+    private Game() {
+    	
+    }
+    public Game getInstance() {
+    	if(Game.instance==null) Game.instance = new Game();
+    	return Game.instance;
+    }
+    
 
     //private SpecialEffect count;
-
     public void executeRound(){
-
         try { 
             Card card = currentPlayer.getHand().getValid(centerCard);
             Action playerAction;
