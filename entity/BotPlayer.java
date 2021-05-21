@@ -4,16 +4,30 @@ public class BotPlayer extends Player {
 	public BotPlayer() {}
 
 	@Override
-	public void discartAction() {
+	public boolean discartAction() {
 		// TODO Auto-generated method stub
+		try {
+			Card card = this.hand.getValid(Game.getInstance().getCenterCard());
 		
+			this.hand.discartCard(card);
+		}catch(Error e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
-	public void buyAction() {
-		// TODO Auto-generated method stub
-		
+	public boolean buyAction() {
+		try {
+			Card newCard = Game.getInstance().generateCard();
+			
+			this.hand.addCard(newCard);
+		}catch(Error e) {
+			return false;
+		}
+		return true;
 	}
+	
 	
 }
 

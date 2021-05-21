@@ -3,8 +3,8 @@ package entity;
 public abstract class Player {
     private Player nextPlayer;
     private Player previousPlayer;
-    private Hand hand;
-    private String nome;
+    protected Hand hand;
+    protected String nome;
 	public Player(String nome) {
 		super();
 		this.hand = new Hand();
@@ -15,8 +15,8 @@ public abstract class Player {
 	}
 	
 	
-	public abstract void discartAction();
-	public abstract void buyAction();
+	public abstract boolean discartAction();
+	public abstract boolean buyAction();
 	
 	
 	public Player getNextPlayer() {
