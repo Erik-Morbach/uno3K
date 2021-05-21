@@ -1,20 +1,24 @@
 package entity;
 
-public class Player {
+public abstract class Player {
     private Player nextPlayer;
     private Player previousPlayer;
     private Hand hand;
-    private boolean isUser;
     private String nome;
-	public Player(String nome, boolean isUser) {
+	public Player(String nome) {
 		super();
 		this.hand = new Hand();
-		this.isUser = isUser;
 		this.nome = nome;
 	}
 	public Player() {
 		super();
 	}
+	
+	
+	public abstract void discartAction();
+	public abstract void buyAction();
+	
+	
 	public Player getNextPlayer() {
 		return nextPlayer;
 	}
@@ -32,12 +36,6 @@ public class Player {
 	}
 	public void setHand(Hand hand) {
 		this.hand = hand;
-	}
-	public boolean isUser() {
-		return isUser;
-	}
-	public void setUser(boolean isUser) {
-		this.isUser = isUser;
 	}
 	public String getNome() {
 		return nome;
