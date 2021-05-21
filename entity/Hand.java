@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Hand {
     private List<Card> cards;
-
+// need a boolean to know if this hand is from a user
     public Hand(){
     }
     public Hand(List<Card> cards){
@@ -15,11 +15,12 @@ public class Hand {
     }
 
     public void addCard(Card card){
+        // if isUser, let the user select the card
         cards.add(card);
     }
 
     public Card discartCard(Card selected){
-        
+        // if isUser, let the user select the card
     	cards.remove(selected);
     	return selected;
     } 
