@@ -26,6 +26,8 @@ public class CommonCard extends Card {
 
 
 	public String toString(){
-        return this.color + String.valueOf(number) + this.color.RESET;
+        return this.color + String.valueOf(number) + this.color.RESET; 
+	//should be
+	// return this.color + String.valueOf(number) + CardColor.RESET;
     }
 }
