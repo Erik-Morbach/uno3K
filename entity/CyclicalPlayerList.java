@@ -37,7 +37,8 @@ public class CyclicalPlayerList {
             this.head.setPreviousPlayer(last);
         }
     }
-
+    // rename to push(Player newPlayer)
+    // we just need one push method
     public void pushFront(Player newPlayer){
          if(this.head!=null){
             newPlayer.setNextPlayer(this.head);
@@ -51,6 +52,7 @@ public class CyclicalPlayerList {
             this.tail = newPlayer;
         }        
     }
+    //remove pushBack()
     public void pushBack(Player newPlayer){
         if(this.tail!=null){
             newPlayer.setPreviousPlayer(this.tail);
