@@ -4,11 +4,11 @@ public abstract class Player {
     private Player nextPlayer;
     private Player previousPlayer;
     protected Hand hand;
-    protected String nome;
-	public Player(String nome) {
+    protected String name;
+	public Player(String name) {
 		super();
 		this.hand = new Hand();
-		this.nome = nome;
+		this.name = name;
 		this.nextPlayer = null;
 		this.previousPlayer = null;
 	}
@@ -17,7 +17,7 @@ public abstract class Player {
 		this.nextPlayer=null;
 		this.previousPlayer=null;
 		this.hand = new Hand();
-		this.nome = null;
+		this.name = null;
 	}
 	
 	
@@ -43,11 +43,11 @@ public abstract class Player {
 	public void setHand(Hand hand) {
 		this.hand = hand;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
     

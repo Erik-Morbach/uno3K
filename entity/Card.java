@@ -15,5 +15,4 @@ public abstract class Card {
         	return ((CommonCard)this).getNumber()==((CommonCard)card).getNumber(); 
         return false;
     }
-	
 }

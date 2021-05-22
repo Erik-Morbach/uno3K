@@ -49,7 +49,8 @@ public class CyclicalPlayerList {
         else {
             this.head = newPlayer;
             this.tail = newPlayer;
-        }        
+        }
+        size++;
     }
 
     public Player getNextPlayer(Player currentPlayer){
