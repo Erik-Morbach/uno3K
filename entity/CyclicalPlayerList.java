@@ -89,5 +89,4 @@ public class CyclicalPlayerList {
 		this.size = size;
 	}
     
-    
 }

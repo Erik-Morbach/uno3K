@@ -1,33 +1,39 @@
 package entity;
 
-import enums.Action;
 
 public class Game {
-    private Card nextCard;
     private Card centerCard;
     private Player currentPlayer;
     private CyclicalPlayerList playerList;
-    
-    public void executeRound(){
+  
+    private static Game instance;
+    private Game() {
+    	this.playerList = null;
+    	this.centerCard = null;
+    	this.currentPlayer = null;
+    }
+    private Game(CyclicalPlayerList playerList) {
+    	this.playerList = playerList;
+    	this.currentPlayer = playerList.getHead();
+    	centerCard = buyCard();
+    }
 
+    public static Game getInstance(CyclicalPlayerList playerList) {
+    	if(instance==null) instance = new Game(playerList);
+    	return instance;
+    }
+    public static Game getInstance() {
+    	if(instance==null) instance = new Game();
+    	return Game.instance;
+    }
+    
+    //private SpecialEffect count;
+
+    public void executeRound(){
         try { 
-            Card card = currentPlayer.getHand().getValid(centerCard);
-            Action playerAction;
-            if(card==null) playerAction = Action.BUY_IT;
-            else playerAction = Action.DISCART;
-            //
-            // boolean canProcced = this.validate(playerAction, playerCard);
-            boolean canProcced = false;
-            if(!canProcced) return; 
-            
-            switch(playerAction) {
-                case DISCART:
-                    this.discartCard();
-                break;
-                case BUY_IT:
-                    this.buyCard(); 
-                break;
-            }
+        	
+        	this.currentPlayer.play();
+        	
         } catch(Error error) {
             // exibe ao jogador o erro
         } finally {
@@ -36,74 +42,48 @@ public class Game {
         
     }
 
-    private boolean validate(Action action){ 
-        if(Action.DISCART == action) {
-            // valida se jogador atual pode descatar, não seja igual ao centro
-            if(false)
-        	throw new Error("Carta diferente drtar");
-            // caso a carta que ele deseja discaro centro');
-            // se não
-            return true;
-        }
-        if(Action.BUY_IT == action) {
-            // valida se jogador atual pode comprar
-            // caso ele tiver uma carta que ele pode jogar
-            if(false) 
-        	throw new Error("motivo");
-            // se não
-            return true;
-        }
-        return false;
-    }
+    
     private void endTurn(){
         Player nextCurrentPlayer = this.playerList.getNextPlayer(this.currentPlayer);
         this.currentPlayer = nextCurrentPlayer;
-        this.generateCard();
-    }
-    private Card generateCard(){
-    	Card generatedCard = CardGenerator.execute();
-    	return generatedCard;
-    }
-    private void buyCard(){
-        this.currentPlayer.getHand().addCard(generateCard());
-    }
-    private void discartCard(){ 
-    	
-        //Card card = this.currentPlayer.getHand().discartCard();
-        //this.centerCard = card;
-        //if(card instanceof SpecialCard)
-        //    this.executeSpecialFucntion(card);
-    }
-    private void executeSpecialFucntion(SpecialCard specialCard){
 
     }
+    public Card buyCard(){
+    	return CardGenerator.execute();
+    }
+    public void discartCard(Card newCenter){ 
+    	this.centerCard = newCenter;
+    	if(this.centerCard instanceof SpecialCard) {
+    		executeSpecialFunction((SpecialCard) this.centerCard);
+    	}
+    }
+    private void executeSpecialFunction(SpecialCard specialCard){
 
+    }
+    
 	public Card getCenterCard() {
 		return centerCard;
 	}
-
 	public void setCenterCard(Card centerCard) {
 		this.centerCard = centerCard;
 	}
-
-	public Player getCurrentPlayer() {
+  public Player getCurrentPlayer() {
 		if(this.currentPlayer == null)
 			this.currentPlayer = this.playerList.getHead();
 		return currentPlayer;
 	}
-
 	public void setCurrentPlayer(Player currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
-
 	public CyclicalPlayerList getPlayerList() {
 		return playerList;
 	}
 
+
 	public void setPlayerList(CyclicalPlayerList playerList) {
 		this.playerList = playerList;
 	}
-    
+
     
 }
 
