@@ -1,5 +1,7 @@
 package entity;
 
+import enums.CardColor;
+
 public class CommonCard extends Card {
 	private Integer number;
 
@@ -8,26 +10,18 @@ public class CommonCard extends Card {
 		return number;
 	}
 
-
 	public void setNumber(Integer number) {
 		this.number = number;
 	}
 
-
-	public CommonCard() {
-		super();
-	}
-
-
-	public CommonCard(Integer number) {
-		super();
+	public CommonCard(Integer number, CardColor color) {
+		super(color);
 		this.number = number;
 	}
 
-
-	public String toString(){
-        return this.color + String.valueOf(number) + this.color.RESET; 
+//	public String toString(){
+//        return this.color + String.valueOf(number) + this.color.RESET; 
 	//should be
 	// return this.color + String.valueOf(number) + CardColor.RESET;
-    }
+//    }
 }

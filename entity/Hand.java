@@ -7,9 +7,14 @@ public class Hand {
     private ArrayList<Card> cards;
 // need a boolean to know if this hand is from a user
     public Hand(){
+      this.cards = null;
     }
+  
     public Hand(ArrayList<Card> cards){
         this.cards = cards;
+    	this.cards = new ArrayList<Card>();
+    	for (int i = 0; i < 7; i++)
+    		this.cards.add(CardGenerator.execute());
     }
 
     public void addCard(Card card){

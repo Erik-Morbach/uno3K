@@ -5,6 +5,7 @@ public class Game {
     private Card centerCard;
     private Player currentPlayer;
     private CyclicalPlayerList playerList;
+  
     private static Game instance;
     private Game() {
     	this.playerList = null;
@@ -27,6 +28,7 @@ public class Game {
     }
     
     //private SpecialEffect count;
+
     public void executeRound(){
         try { 
         	
@@ -65,7 +67,9 @@ public class Game {
 	public void setCenterCard(Card centerCard) {
 		this.centerCard = centerCard;
 	}
-	public Player getCurrentPlayer() {
+  public Player getCurrentPlayer() {
+		if(this.currentPlayer == null)
+			this.currentPlayer = this.playerList.getHead();
 		return currentPlayer;
 	}
 	public void setCurrentPlayer(Player currentPlayer) {
@@ -74,11 +78,12 @@ public class Game {
 	public CyclicalPlayerList getPlayerList() {
 		return playerList;
 	}
+
+
 	public void setPlayerList(CyclicalPlayerList playerList) {
 		this.playerList = playerList;
 	}
-    
-	
+
     
 }
 
