@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import enums.Action;
 public class Menu {
-    private static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void tutorialDisplay() {
         System.out.println("Bem vindo ao Uno da 3K!!!\n\nVocê jogará contra 3 computadores, uma carta estará sempre ao centro, o objetivo do jogo é descartar todas as cartas que estão em sua mão\nPara poder descartar uma carta, ela deve ter ou o mesmo número, ou a mesma cor que a carta do centro da mesa\nA ultima carta que foi descartada sempre fica ao centro para o proximo jogador realizar sua jogada\n\n");

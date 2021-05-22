@@ -32,21 +32,13 @@ public class Game {
     
     //private SpecialEffect count;
 
-    public void executeRound(){
-        try { 
-        	
-        	this.currentPlayer.play();
-        	
-        } catch(Error error) {
-            // exibe ao jogador o erro
-        } finally {
-            this.endTurn();
-        }
-        
+    public void play(){
+        this.currentPlayer.play();	
+        endTurn();
     }
 
     
-    private void endTurn(){
+    public void endTurn(){
         Player nextCurrentPlayer = this.playerList.getNextPlayer(this.currentPlayer);
         this.currentPlayer = nextCurrentPlayer;
 
