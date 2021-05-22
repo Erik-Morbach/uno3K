@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
 
 import entity.BotPlayer;
 import entity.CyclicalPlayerList;
@@ -28,6 +27,9 @@ public class Main {
 		
 		while(true) {
 			
+			sleep();
+			
+			
 			if(game.getCurrentPlayer() instanceof UserPlayer)
 				Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
 			game.executeRound();
@@ -53,5 +55,14 @@ public class Main {
 		*/
 		
 	}
-
+	
+	public static void sleep() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
+
