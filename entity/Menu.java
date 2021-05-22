@@ -11,25 +11,29 @@ public class Menu {
         
     }
  
-    public static void handleSpecialDisplay(SpecialCard card) {
-        switch(card.getSpecial()) { 
-            case CHOOSE_COLOR:
-            
-            case PLUS_4:
-                System.out.println("Escolha uma cor");
-     
-                break;
-		default:
-			break;
-        }
-    } 
-    
     public static void handleActionDisplay(Hand cards) { 
         System.out.println("SUA VEZ!\ndigite o número correspondente a ação que deseja tomar");
-        System.out.println("sua mão: " + cards.getCardsInLine());
         System.out.printf("%d-DISCARTAR CARTA, %d-COMPRAR CARTA: ", Action.DISCART.getValue(), Action.BUY_IT.getValue());
     }
     
+    public static void handleDisplayGameSituation(Game game) {
+    	Player player = game.getPlayerList().getHead();
+    	String playerHand = "";
+    	for (int i = 0; i < game.getPlayerList().getSize(); i++) {
+    		if(player instanceof UserPlayer) {
+    			playerHand = player.getHand().getCardsInLine();
+    			continue;
+    		};
+			System.out.println("Jogador: "+player.getName() + " - N° de cartas: "+ player.getHand().getLength()+"\n");
+			player = player.getNextPlayer();
+		}
+    	System.out.println("SUA MÃO: "+ playerHand);
+    	System.out.println("PROXIMO JOGADOR: " + game.getCurrentPlayer().getName().toUpperCase()+"\n\n");
+    }
+    
+    public static void handleDisplayUserCards() {
+    	
+    }
 }
 
 // %02d ->  vai aparecer o número com duas casa e se não 

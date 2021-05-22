@@ -16,6 +16,10 @@ public class Hand {
         // if isUser, let the user select the card
         cards.add(card);
     }
+    
+    public int getLength() {
+    	return cards.size();
+    }
 
     public Card discartCard(Card selected){
         // if isUser, let the user select the card
