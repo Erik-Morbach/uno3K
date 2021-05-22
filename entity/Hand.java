@@ -1,17 +1,15 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
-    private List<Card> cards;
+    private ArrayList<Card> cards;
 // need a boolean to know if this hand is from a user
     public Hand(){
     }
-    public Hand(List<Card> cards){
+    public Hand(ArrayList<Card> cards){
         this.cards = cards;
-    }
-    public Hand(int numberOfCards){
-
     }
 
     public void addCard(Card card){

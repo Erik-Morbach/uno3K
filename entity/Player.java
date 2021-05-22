@@ -15,9 +15,9 @@ public abstract class Player {
 	}
 	
 	
-	public abstract boolean discartAction();
-	public abstract boolean buyAction();
-	
+	public abstract Card discartAction();
+	public abstract Card buyAction();
+	public abstract void play();
 	
 	public Player getNextPlayer() {
 		return nextPlayer;
