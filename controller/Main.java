@@ -2,35 +2,36 @@ package controller;
 
 import java.util.ArrayList;
 
+import entity.BotPlayer;
 import entity.CyclicalPlayerList;
 import entity.Game;
 import entity.Menu;
 import entity.Player;
+import entity.UserPlayer;
 
 public class Main {
 	public static void main(String[] args) {
-		Game game = new Game();
-		Player player1 = new Player("Jogador 1",false); 
-		Player player2 = new Player("Jogador 2",false);
-		Player player3 = new Player("Jogador 3",false);
-		Player player4 = new Player("Jogador 4",false);
-		
-		ArrayList<Player> players = new ArrayList<Player>();
+		Player player1 = new UserPlayer("Jogador 1"); 
+		Player player2 = new BotPlayer("Jogador 2");
+		Player player3 = new BotPlayer("Jogador 3");
+		Player player4 = new BotPlayer("Jogador 4");
 
-		players.add(player1);
-		players.add(player2);
-		players.add(player3);
-		players.add(player4);
-		CyclicalPlayerList list = new CyclicalPlayerList(players);
+		CyclicalPlayerList list = new CyclicalPlayerList();
+		list.push(player1);
+		list.push(player2);
+		list.push(player3);
+		list.push(player4);
 		
-		game.setPlayerList(list);
+		Game game = Game.getInstance(list);
 		
 		Menu.tutorialDisplay();
 		
-//		do {
-			Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
+		while(true) {
+			
+			if(game.getCurrentPlayer() instanceof UserPlayer)
+				Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
 			game.executeRound();
-//		} while(true);
+		}
 
 		
 		/*

@@ -7,7 +7,7 @@ public class SpecialCard extends Card {
     private Special special;
 
 	public SpecialCard(Special special) {
-		super(CardColor.RED);
+		super(CardColor.BLACK);
 		this.special = special;
 	}
 

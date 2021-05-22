@@ -9,9 +9,15 @@ public abstract class Player {
 		super();
 		this.hand = new Hand();
 		this.nome = nome;
+		this.nextPlayer = null;
+		this.previousPlayer = null;
 	}
 	public Player() {
 		super();
+		this.nextPlayer=null;
+		this.previousPlayer=null;
+		this.hand = new Hand();
+		this.nome = null;
 	}
 	
 	

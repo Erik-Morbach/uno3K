@@ -4,7 +4,8 @@ public enum CardColor {
         RED("VERMELHO"), 
         GREEN("VERDE"), 
         YELLOW("AMARELO"), 
-        BLUE("AZUL"); 
+        BLUE("AZUL"), 
+		BLACK("PRETO");
         
 		public String getValue() { return value; }
 

@@ -1,7 +1,12 @@
 package entity;
 
 public class UserPlayer extends Player {
-	public UserPlayer() {}
+	public UserPlayer() {
+		super();
+	}
+	public UserPlayer(String name) {
+		super(name);
+	}
 
 	@Override
 	public Card discartAction() {

@@ -19,11 +19,14 @@ public class Game {
     }
 
     public static Game getInstance(CyclicalPlayerList playerList) {
-    	if(instance==null) instance = new Game(playerList);
+    	if(instance==null) 
+    		instance = new Game(playerList);
     	return instance;
     }
     public static Game getInstance() {
-    	if(instance==null) instance = new Game();
+    	if(instance==null) 
+    		throw new Error("Instancia ai meu!");
+    	
     	return Game.instance;
     }
     
