@@ -1,12 +1,13 @@
 package entity;
 
+import enums.CardColor;
 import enums.Special;
 
 public class SpecialCard extends Card {
     private Special special;
 
 	public SpecialCard(Special special) {
-		super();
+		super(CardColor.RED);
 		this.special = special;
 	}
 

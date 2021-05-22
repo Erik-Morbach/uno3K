@@ -4,23 +4,14 @@ import java.util.Scanner;
 
 import enums.Action;
 public class Menu {
-    private Scanner scanner;
-    private Menu instance;
+    private static Scanner scanner = new Scanner(System.in);
 
-    private Menu() {
-        this.scanner = new Scanner(System.in);
-    }
-
-    public Menu getInstance() {
-        if(instance==null) this.instance = new Menu();
-        return this.instance;
-    } 
-
-    public void tutorialDisplay() {
-        // explicação do jogo
+    public static void tutorialDisplay() {
+        System.out.println("Bem vindo ao Uno da 3K!!!\n\nVocê jogará contra 3 computadores, uma carta estará sempre ao centro, o objetivo do jogo é descartar todas as cartas que estão em sua mão\nPara poder descartar uma carta, ela deve ter ou o mesmo número, ou a mesma cor que a carta do centro da mesa\nA ultima carta que foi descartada sempre fica ao centro para o proximo jogador realizar sua jogada\n\n");
+        
     }
  
-    public void handleSpecialDisplay(SpecialCard card) {
+    public static void handleSpecialDisplay(SpecialCard card) {
         switch(card.getSpecial()) { 
             case CHOOSE_COLOR:
             
@@ -32,19 +23,11 @@ public class Menu {
 			break;
         }
     } 
-    public int handleActionDisplay(Hand cards) { 
+    
+    public static void handleActionDisplay(Hand cards) { 
         System.out.println("SUA VEZ!\ndigite o número correspondente a ação que deseja tomar");
         System.out.println("sua mão: " + cards.getCardsInLine());
-        System.out.printf("%d-DISCARTAR CARTA, %d-COMPRAR CARTA: ", Action.DISCART , Action.BUY_IT);
-        int numberAction = this.scanner.nextInt(); 
-        if(numberAction==Action.BUY_IT.getValue())
-        	return -1;
-        if(numberAction==Action.DISCART.getValue()) {
-            System.out.println("insira o numero a esquerda da carta que deseja jogar:\n\n"+cards.getCardsInColumn());
-            int cardIndex = this.scanner.nextInt();
-            return cardIndex;
-        }
-        return -1;//?
+        System.out.printf("%d-DISCARTAR CARTA, %d-COMPRAR CARTA: ", Action.DISCART.getValue(), Action.BUY_IT.getValue());
     }
 }
 

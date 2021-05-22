@@ -64,4 +64,30 @@ public class CyclicalPlayerList {
     		this.orientation=Orientation.COUNTER_CLOCK_WISE;
     	else this.orientation=Orientation.CLOCK_WISE;
     }
+	public Orientation getOrientation() {
+		return orientation;
+	}
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
+	}
+	public Player getHead() {
+		return head;
+	}
+	public void setHead(Player head) {
+		this.head = head;
+	}
+	public Player getTail() {
+		return tail;
+	}
+	public void setTail(Player tail) {
+		this.tail = tail;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+    
+    
 }

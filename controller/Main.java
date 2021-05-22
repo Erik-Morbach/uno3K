@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entity.CyclicalPlayerList;
 import entity.Game;
+import entity.Menu;
 import entity.Player;
 
 public class Main {
@@ -21,8 +22,17 @@ public class Main {
 		players.add(player3);
 		players.add(player4);
 		CyclicalPlayerList list = new CyclicalPlayerList(players);
-		System.out.println("Rodou!");
+		
+		game.setPlayerList(list);
+		
+		Menu.tutorialDisplay();
+		
+//		do {
+			Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
+			game.executeRound();
+//		} while(true);
 
+		
 		/*
 			Na etapa intermediária, deve-se apresentar o pacote de persistência
 			(entidades) em Java e seu testes em um fluxo do programa principal, 
