@@ -28,8 +28,8 @@ public class Main {
 		while(true) {
 			
 			sleep();
-			
-			
+			// Mostrar mapa/situação do jogo
+			// cartas do jogador
 			if(game.getCurrentPlayer() instanceof UserPlayer)
 				Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
 			game.executeRound();

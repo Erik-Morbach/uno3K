@@ -29,6 +29,7 @@ public class Menu {
         System.out.println("sua mão: " + cards.getCardsInLine());
         System.out.printf("%d-DISCARTAR CARTA, %d-COMPRAR CARTA: ", Action.DISCART.getValue(), Action.BUY_IT.getValue());
     }
+    
 }
 
 // %02d ->  vai aparecer o número com duas casa e se não 

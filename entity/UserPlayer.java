@@ -12,6 +12,8 @@ public class UserPlayer extends Player {
 	public Card discartAction() {
 		// Ask menu for a card to remove
 		// card = menu.getValidOption();
+		// perguntaQualCarta()
+		// pegaResposta()
 		Card card = null;
 		
 		if(card!=null) 
@@ -33,6 +35,8 @@ public class UserPlayer extends Player {
 	@Override
 	public void play() {
 		// TODO Auto-generated method stub
+		// pergunto()
+		// pegaResposta(2)
 		if(discartAction()!=null) 
 			return;
 		
