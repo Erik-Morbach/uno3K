@@ -23,7 +23,7 @@ public abstract class Player {
 	}
 	
 	public void showAction(Action action) {
-		System.out.printf("%s Acaba de",this.name);
+		System.out.printf("%s Acaba de ",this.name);
 		switch(action) {
 		case BUY_IT:
 			System.out.println("comprar uma carta!");

@@ -32,6 +32,18 @@ public class UserPlayer extends Player {
 		return newCard;
 	}
 
+	public void showAction(Action action, Card card) {
+		System.out.printf("Você acaba de ");
+		switch(action) {
+		case BUY_IT:
+			System.out.printf("comprar a carta %s!\n",card);
+			break;
+		case DISCART:
+			System.out.printf("colocar a carta %s no centro!\n",card);
+			break;
+		}	
+	}
+	
 	@Override
 	public void play() {
 		// TODO Auto-generated method stub
@@ -40,15 +52,14 @@ public class UserPlayer extends Player {
 		Action action = getAction();
 		switch(action) {
 		case DISCART:
-			discartAction();
-			super.showAction(Action.DISCART);
+			showAction(Action.DISCART,discartAction());
 			break;
 		case BUY_IT:
-			buyAction();
-			super.showAction(Action.BUY_IT);
+			showAction(Action.BUY_IT,buyAction());
 			break;
 		}
 	}
+	
 	private Action getAction() {
 		int option;
 		while(true) {

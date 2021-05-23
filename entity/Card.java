@@ -11,8 +11,8 @@ public abstract class Card {
     public boolean compare(Card card){
         if(this.color==CardColor.BLACK) return true;
         if(this.color==card.color) return true;
-        if(card instanceof CommonCard && this instanceof CommonCard) 
-        	return ((CommonCard)this).getNumber()==((CommonCard)card).getNumber(); 
+        if((card instanceof CommonCard) && (this instanceof CommonCard)) 
+        	return (((CommonCard)this).getNumber()==((CommonCard)card).getNumber()); 
         return false;
     }
 }
