@@ -34,7 +34,7 @@ public class Main {
 			
 			if(game.getCurrentPlayer() instanceof UserPlayer)
 				Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
-			game.executeRound();
+			game.play();
 		}
 	}
 	

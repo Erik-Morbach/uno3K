@@ -19,9 +19,10 @@ public class UserPlayer extends Player {
 		Menu.handleDisplayUserCards();
 		Card card = getCard();
 		
-		if(card!=null) 
+		if(card!=null) {
 			this.hand.discartCard(card);
-
+			Game.getInstance().discartCard(card);
+		}
 		
 		return card;	
 	}
@@ -83,24 +84,32 @@ public class UserPlayer extends Player {
 		return !valid;
 	}
 	private Card getCard() {
-		String option;
+		String option = null;
+		Card center = Game.getInstance().getCenterCard();
 		while(true) {
 			try {
 				option = Menu.scanner.next();
-			
-				if(option.length()>1) {
-					errorMessage();
-					continue;
-				}
-				char value = option.charAt(0);
-				if(value>='A' && value<='Z') {
-					int number = value-'A';
-					return this.hand.getCards().get(number);
-				}
-			}catch(Error e) {
+			}catch(Error e) {}
+			if(option.length()>1) {
+				errorMessage();
+				continue;
 			}
+			char value = option.charAt(0);
+			if(value>='A' && value<='Z') {
+				int number = value-'A';
+				if(number <= this.hand.getCards().size()) {
+					Card choosed = this.hand.getCards().get(number);
+					if(choosed.compare(center)) 
+						return choosed;
+				}
+				replayMessage();
+			}
+			
 			errorMessage();
 		}
+	}
+	private void replayMessage() {
+		System.err.println("Carta Invalida!");
 	}
 	private void errorMessage() {
 		System.out.println("Tente novamente!");

@@ -1,5 +1,7 @@
 package entity;
 
+import enums.Action;
+
 public abstract class Player {
     private Player nextPlayer;
     private Player previousPlayer;
@@ -20,6 +22,17 @@ public abstract class Player {
 		this.name = null;
 	}
 	
+	public void showAction(Action action) {
+		System.out.printf("%s Acaba de",this.name);
+		switch(action) {
+		case BUY_IT:
+			System.out.println("comprar uma carta!");
+			break;
+		case DISCART:
+			System.out.printf("Colocou a carta %s no centro!\n",Game.getInstance().getCenterCard());
+			break;
+		}
+	}
 	
 	public abstract Card discartAction();
 	public abstract Card buyAction();
