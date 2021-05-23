@@ -1,6 +1,5 @@
 package controller;
 
-
 import entity.BotPlayer;
 import entity.CyclicalPlayerList;
 import entity.Game;
@@ -37,12 +36,8 @@ public class Main {
 	}
 	
 	public static void sleep() {
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("Digite qualquer coisa para continuar!\n");
+		Menu.scanner.nextLine();
 	}
 }
 
