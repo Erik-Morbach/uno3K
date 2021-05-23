@@ -39,6 +39,12 @@ public class Game {
     public boolean endTurn(){
     	if(this.currentPlayer.getHand().getLength() == 0)
     		return true;
+    	
+    	if(this.currentPlayer.getHand().getLength() == 1)
+    	{
+    		System.out.println("\n"+this.currentPlayer.getName().toUpperCase()+" ESTÁ EM UNO!!!!\n");
+    	}
+    	
         Player nextCurrentPlayer = this.playerList.getNextPlayer(this.currentPlayer);
         this.currentPlayer = nextCurrentPlayer;
         return false;

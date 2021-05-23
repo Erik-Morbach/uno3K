@@ -28,6 +28,7 @@ public class Main {
 		Menu.tutorialDisplay();
 		
 		while(true) {
+			System.out.println("##########################################################");
 			sleep();
 			Menu.handleDisplayGameSituation(game);
 			
@@ -35,10 +36,13 @@ public class Main {
 			
 			if(win) break;
 		}
+		
+		System.out.println("##########################################################");
+		System.out.println("PARABENS "+game.getCurrentPlayer().getName().toUpperCase()+" VOCÊ GANHOU O UNO DA 3K!!!");
 	}
 	
 	public static void sleep() {
-		System.out.println("Digite qualquer coisa para continuar!\n");
+		System.out.println("Digite qualquer coisa para continuar!");
 		Menu.scanner.nextLine();
 	}
 }
