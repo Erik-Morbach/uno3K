@@ -101,6 +101,7 @@ public class UserPlayer extends Player {
 				continue;
 			}
 			char value = option.charAt(0);
+			value = Character.toUpperCase(value);
 			if(value>='A' && value<='Z') {
 				int number = value-'A';
 				if(number <= this.hand.getCards().size()) {
