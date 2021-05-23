@@ -27,7 +27,6 @@ public class UserPlayer extends Player {
 	@Override
 	public Card buyAction() {
 		Card newCard = CardGenerator.execute();
-		//show newCard in menu
 		this.hand.addCard(newCard);
 		return newCard;
 	}
