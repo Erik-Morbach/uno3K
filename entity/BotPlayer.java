@@ -17,6 +17,9 @@ public class BotPlayer extends Player {
 		if(currentCard==null) return null;
 			
 		this.hand.discartCard(currentCard);
+		
+		Game.getInstance().discartCard(currentCard);
+		
 		return currentCard;
 	}
 

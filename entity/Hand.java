@@ -30,7 +30,9 @@ public class Hand {
     
     public Card getValid(Card center){
         for(Card current: this.cards){
-            if(current.compare(center)) return current;
+        	if(current.compare(center)) {
+            	return current;
+            }
         }
         return null;
     }
