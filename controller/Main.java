@@ -31,7 +31,9 @@ public class Main {
 			sleep();
 			Menu.handleDisplayGameSituation(game);
 			
-			game.play();
+			boolean win = game.play();
+			
+			if(win) break;
 		}
 	}
 	

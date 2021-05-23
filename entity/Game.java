@@ -29,25 +29,27 @@ public class Game {
     	
     	return Game.instance;
     }
-    
-    //private SpecialEffect count;
 
-    public void play(){
+    public boolean play(){
         this.currentPlayer.play();	
-        endTurn();
+        return endTurn();
     }
 
     
-    public void endTurn(){
+    public boolean endTurn(){
+    	if(this.currentPlayer.getHand().getLength() == 0)
+    		return true;
         Player nextCurrentPlayer = this.playerList.getNextPlayer(this.currentPlayer);
         this.currentPlayer = nextCurrentPlayer;
-
+        return false;
     }
     public Card buyCard(){
     	return CardGenerator.execute();
     }
     public void discartCard(Card newCenter){ 
     	this.centerCard = newCenter;
+    	
+    	// implementação futura
     	if(this.centerCard instanceof SpecialCard) {
     		executeSpecialFunction((SpecialCard) this.centerCard);
     	}
