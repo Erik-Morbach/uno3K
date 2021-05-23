@@ -68,11 +68,16 @@ public class UserPlayer extends Player {
 					case 1:
 						if(validate(Action.DISCART))
 							return Action.DISCART;
-						
+						else 
+							System.out.println("Você não tem a carta necessária para ser descartada!");
 						break;
 					case 2:
-						if(validate(Action.BUY_IT))
+						if(validate(Action.BUY_IT)) 
 							return Action.BUY_IT;
+						else 
+							System.out.println("Você tem cartas para Jogar!");
+							
+						
 						break;
 				}
 			}catch(Error e) {
