@@ -1,5 +1,7 @@
 package entity;
 
+import enums.Action;
+
 public class BotPlayer extends Player {
 	public BotPlayer() {
 		super();
@@ -29,9 +31,12 @@ public class BotPlayer extends Player {
 	
 	
 	public void play() {
-		if(discartAction()!=null) 
+		if(discartAction()!=null) {
+			super.showAction(Action.DISCART);
 			return;
+		}
 		buyAction();
+		super.showAction(Action.BUY_IT);
 	}
 }
 
