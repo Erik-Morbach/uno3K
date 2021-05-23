@@ -1,5 +1,7 @@
 package entity;
 
+import enums.Action;
+
 public abstract class Player {
     private Player nextPlayer;
     private Player previousPlayer;
@@ -48,6 +50,10 @@ public abstract class Player {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void showAction(Action action) {
+		
 	}
 
     

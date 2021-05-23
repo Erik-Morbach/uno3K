@@ -12,11 +12,7 @@ public class UserPlayer extends Player {
 
 	@Override
 	public Card discartAction() {
-		// Ask menu for a card to remove
-		// card = menu.getValidOption();
-		// perguntaQualCarta()
-		// pegaResposta()
-		Menu.handleDisplayUserCards();
+		Menu.handleDisplayUserCards(super.hand);
 		Card card = getCard();
 		
 		if(card!=null) 
@@ -44,11 +40,11 @@ public class UserPlayer extends Player {
 		switch(action) {
 		case DISCART:
 			discartAction();
-			showAction(Action.DISCART);
+			super.showAction(Action.DISCART);
 			break;
 		case BUY_IT:
 			buyAction();
-			showAction(Action.BUY_IT);
+			super.showAction(Action.BUY_IT);
 			break;
 		}
 	}
