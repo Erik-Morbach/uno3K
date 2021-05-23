@@ -32,8 +32,6 @@ public class Main {
 			sleep();
 			Menu.handleDisplayGameSituation(game);
 			
-			if(game.getCurrentPlayer() instanceof UserPlayer)
-				Menu.handleActionDisplay(game.getCurrentPlayer().getHand());
 			game.play();
 		}
 	}

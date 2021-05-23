@@ -39,7 +39,7 @@ public class UserPlayer extends Player {
 	@Override
 	public void play() {
 		// TODO Auto-generated method stub
-		Menu.handleActionDisplay(null);
+		Menu.handleActionDisplay(this.getHand());
 		
 		Action action = getAction();
 		switch(action) {
