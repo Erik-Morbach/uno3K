@@ -29,7 +29,7 @@ public abstract class Player {
 			System.out.println("comprar uma carta!");
 			break;
 		case DISCART:
-			System.out.printf("Colocou a carta %s no centro!\n",Game.getInstance().getCenterCard());
+			System.out.printf("colocar a carta %s no centro!\n",Game.getInstance().getCenterCard());
 			break;
 		}
 	}
@@ -63,9 +63,5 @@ public abstract class Player {
 		this.name = name;
 	}
 	
-	public void showAction(Action action) {
-		
-	}
-
     
 }
