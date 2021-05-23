@@ -21,7 +21,7 @@ public class Menu {
     	String playerHand = "";
     	for (int i = 0; i < game.getPlayerList().getSize(); i++) {
     		if(player instanceof UserPlayer) {
-    			playerHand = "["+ player.getHand().getLength() +" cartas] " + player.getHand().getCardsInLine();
+    			playerHand = player.getHand().getCardsInLine();
     			continue;
     		};
 			System.out.println("Jogador: "+player.getName() + " - N° de cartas: "+ player.getHand().getLength()+"\n");

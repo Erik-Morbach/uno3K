@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Hand {
     private ArrayList<Card> cards;
-// need a boolean to know if this hand is from a user
+    private final int maxInitialCards = 7; 
+    
     public Hand(){
     	this.cards = new ArrayList<Card>();
-    	for (int i = 0; i < 7; i++)
+    	for (int i = 0; i < this.maxInitialCards; i++)
     		this.cards.add(CardGenerator.execute());
     }
 
     public void addCard(Card card){
-        // if isUser, let the user select the card
         cards.add(card);
     }
     
@@ -22,7 +22,6 @@ public class Hand {
     }
 
     public Card discartCard(Card selected){
-        // if isUser, let the user select the card
     	cards.remove(selected);
     	return selected;
     } 
@@ -40,12 +39,16 @@ public class Hand {
     public String getCardsInLine() {
         String response = "";
         boolean first = true;
-        for(Card it: cards){
+        
+        int count = 0;
+        
+        for(Card card: cards){
             if(!first) response += " ";
-            first = false;
-            response += it.toString();
+            first = count%4 == 3;
+            String space = ++count%4 == 0 ? "\n" : "";
+            response += card.toString()+space;
         }
-        return response;
+        return "["+ this.getLength() +" cartas]\n"+response;
     }
 
     public String getCardsInColumn() { 
